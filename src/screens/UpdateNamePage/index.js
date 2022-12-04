@@ -13,7 +13,9 @@ const UpdateNamePage = props => {
         <InputBox info={{name: 'First Name'}} />
         <InputBox info={{name: 'Last Name'}} />
       </View>
-      <UpdateButton />
+      <View style={styles.updateButton}>
+        <UpdateButton />
+      </View>
     </View>
   );
 };

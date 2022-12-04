@@ -1,13 +1,17 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 
 import styles from './styles';
 
 const UpdateButton = props => {
   return (
-    <View>
-      <Button>Update</Button>
-    </View>
+    <Pressable
+      style={styles.updateButton}
+      onPress={() => {
+        console.warn('Update pressed');
+      }}>
+      <Text style={styles.updateText}>Update</Text>
+    </Pressable>
   );
 };
 

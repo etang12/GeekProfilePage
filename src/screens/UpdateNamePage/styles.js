@@ -3,19 +3,22 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    marginHorizontal: 30,
+    marginHorizontal: 40,
     marginTop: 60,
+    height: '100%',
   },
   title: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 28,
     marginBottom: 40,
-    marginLeft: 15,
   },
   inputContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
+  },
+  updateButton: {
+    marginTop: '105%',
   },
 });
 
