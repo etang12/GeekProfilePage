@@ -29,10 +29,10 @@ const ProfilePage = props => {
       </View>
 
       <View>
-        <InputRow title={'Name'} />
-        <InputRow title={'Phone'} />
-        <InputRow title={'Email'} />
-        <InputRow title={'Tell us about yourself'} />
+        <InputRow data={{rowId: 1, title: 'Name'}} />
+        <InputRow data={{rowId: 2, title: 'Phone'}} />
+        <InputRow data={{rowId: 3, title: 'Email'}} />
+        <InputRow data={{rowId: 4, title: 'Tell us about yourself'}} />
       </View>
     </View>
   );

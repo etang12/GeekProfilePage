@@ -23,10 +23,6 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import styles from './styles';
 import Router from './src/navigation/Router';
 
-import ProfilePage from './src/screens/ProfilePage';
-// import UpdateNamePage from './src/screens/UpdateNamePage';
-import UpdatePage from './src/screens/UpdatePage';
-
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -37,9 +33,6 @@ const App: () => Node = () => {
   return (
     <>
       <StatusBar barStyle={'light-content'} backgroundColor={'#4267B2'} />
-
-      {/* <UpdatePage data={{title: "What's your phone number?"}} /> */}
-      {/* <ProfilePage /> */}
       <Router />
     </>
   );
