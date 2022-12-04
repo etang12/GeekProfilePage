@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, View, Pressable} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
@@ -32,7 +32,7 @@ const InputRow = props => {
       onPress={() => {
         console.warn('clicked ' + rowId);
         const pageName = getPageName(rowId);
-        navigation.navigate(pageName);
+        navigation.navigate(pageName, {rowId: rowId});
       }}>
       <View style={styles.rowText}>
         <Text style={{fontWeight: 'bold', color: 'lightgrey'}}>{title}</Text>

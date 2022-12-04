@@ -3,10 +3,10 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
+    flex: 1,
   },
   inputBox: {
     flexDirection: 'column',
-    width: 155,
     height: 65,
     borderWidth: 1,
     borderColor: 'lightgrey',

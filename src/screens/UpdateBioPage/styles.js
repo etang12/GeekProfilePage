@@ -10,6 +10,14 @@ const styles = StyleSheet.create({
     marginTop: 60,
     height: '100%',
   },
+  textInput: {
+    fontWeight: 'bold',
+    fontSize: 17,
+    marginHorizontal: 5,
+    // paddingBottom: 15,
+    // padding: 0,
+    // margin: 0,
+  },
   title: {
     color: 'black',
     fontWeight: 'bold',
@@ -17,11 +25,12 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    borderWidth: 1,
+    borderColor: 'lightgrey',
+    height: 200,
   },
   updateButton: {
-    marginTop: '100%',
+    marginTop: '105%',
   },
 });
 

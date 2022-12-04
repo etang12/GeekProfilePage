@@ -3,6 +3,8 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'column',
+    backgroundColor: 'white',
+    flex: 1,
   },
   header: {
     alignItems: 'center',
