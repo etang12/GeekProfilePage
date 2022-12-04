@@ -22,7 +22,8 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import styles from './styles';
-import ProfilePage from './src/screens/ProfilePage';
+// import ProfilePage from './src/screens/ProfilePage';
+import UpdateNamePage from './src/screens/UpdateNamePage';
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -33,12 +34,10 @@ const App: () => Node = () => {
 
   return (
     <SafeAreaView>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#4267B2'} />
 
-      <ProfilePage />
+      {/* <ProfilePage /> */}
+      <UpdateNamePage />
     </SafeAreaView>
   );
 };
