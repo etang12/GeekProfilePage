@@ -12,7 +12,10 @@ const ProfilePage = props => {
         <Text style={{fontSize: 26, fontWeight: 'bold', color: '#4267B2'}}>
           Edit Profile
         </Text>
-        <View style={{alignSelf: 'center'}}>
+        <Pressable
+          onPress={() => {
+            console.warn('edit profile clicked');
+          }}>
           <Image
             style={styles.profileImage}
             source={{
@@ -20,13 +23,16 @@ const ProfilePage = props => {
             }}
           />
           <View style={styles.editIcon}>
-            <MaterialIcons name="edit" size={26} color="#4267B2" />
+            <MaterialIcons name="edit" size={22} color="#4267B2" />
           </View>
-        </View>
+        </Pressable>
       </View>
 
       <View>
-        <InputRow />
+        <InputRow title={'Name'} />
+        <InputRow title={'Phone'} />
+        <InputRow title={'Email'} />
+        <InputRow title={'Tell us about yourself'} />
       </View>
     </View>
   );
