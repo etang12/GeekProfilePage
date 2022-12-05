@@ -12,7 +12,7 @@ const UpdatePage = props => {
   const route = useRoute();
 
   const selectedRowId = route.params.rowId;
-  console.warn(selectedRowId);
+  // console.warn(selectedRowId);
   const title =
     selectedRowId === 2 ? "What's your phone number?" : "What's your email?";
   const label =

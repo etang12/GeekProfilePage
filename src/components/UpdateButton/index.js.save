@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text, Pressable} from 'react-native';
+OBimport {Text, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-
+OBBOB
 import styles from './styles';
 
 const UpdateButton = props => {
   const fullNameObj = props.fullName;
-  const rowId = props.rowId;
+  conOst rowId = props.rowId;
   const navigation = useNavigation();
   const fullName = `${fullNameObj.firstName} ${fullNameObj.lastName}`;
   return (

@@ -9,6 +9,8 @@ import styles from './styles';
 const InputRow = props => {
   const title = props.data.title;
   const rowId = props.data.rowId;
+  const content = props.data.content;
+  console.log(`NEW: ${content}`);
   const navigation = useNavigation();
 
   const getPageName = id => {
@@ -30,13 +32,14 @@ const InputRow = props => {
     <Pressable
       style={styles.row}
       onPress={() => {
-        console.warn('clicked ' + rowId);
         const pageName = getPageName(rowId);
-        navigation.navigate(pageName, {rowId: rowId});
+        navigation.navigate(pageName, {
+          rowId: rowId,
+        });
       }}>
       <View style={styles.rowText}>
         <Text style={{fontWeight: 'bold', color: 'lightgrey'}}>{title}</Text>
-        <Text style={{fontWeight: 'bold', color: 'black'}}></Text>
+        <Text style={{fontWeight: 'bold', color: 'black'}}>{content}</Text>
       </View>
       <View style={styles.rowIcon}>
         <Ionicons name="chevron-forward-outline" size={24} color="lightgrey" />

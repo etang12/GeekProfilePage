@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     marginHorizontal: 40,
-    marginTop: 60,
+    marginTop: 30,
     height: '100%',
   },
   textInput: {
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     height: 200,
   },
   updateButton: {
-    marginTop: '105%',
+    marginTop: '50%',
   },
 });
 

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput} from 'react-native';
 
 import styles from './styles';
 
 const InputBox = props => {
   const name = props.info.name;
+  const onTextChange = props.onTextChange;
 
   // initial thoughts
   // deals with deciding if inputbox is being used for updating name (requires 2) or updating phone/email (1)
@@ -22,6 +23,7 @@ const InputBox = props => {
           <TextInput
             style={styles.textInput}
             underlineColorAndroid="transparent"
+            onChangeText={onTextChange}
           />
         </View>
       </View>

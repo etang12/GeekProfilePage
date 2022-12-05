@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {Text, View, Pressable, Image} from 'react-native';
+import {useRoute} from '@react-navigation/native';
 
 import styles from './styles';
 import InputRow from '../../components/InputRow';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+// import {Input} from '@mui/material';
 
 const ProfilePage = props => {
+  const route = useRoute();
+  const [formField, setFormField] = useState('');
+
+  // flag used to indicate navigation from one of the updating pages (signals that data is available)
+  let isReturned = useRef();
+  useEffect(() => {
+    if (route.params) {
+      // setFormField(prevState => ({
+      //   ...prevState,
+      //   field: route.params.InputData,
+      // }));
+      setFormField(route.params.InputData);
+    }
+  }, [route.params]);
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.header}>
@@ -29,7 +46,13 @@ const ProfilePage = props => {
       </View>
 
       <View>
-        <InputRow data={{rowId: 1, title: 'Name'}} />
+        <InputRow
+          data={{
+            rowId: 1,
+            title: 'Name',
+            content: formField,
+          }}
+        />
         <InputRow data={{rowId: 2, title: 'Phone'}} />
         <InputRow data={{rowId: 3, title: 'Email'}} />
         <InputRow data={{rowId: 4, title: 'Tell us about yourself'}} />
