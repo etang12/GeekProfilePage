@@ -39,7 +39,7 @@ const InputRow = props => {
         <Text style={styles.rowContent}>{content}</Text>
       </View>
       <View style={styles.rowIcon}>
-        <Ionicons name="chevron-forward-outline" size={24} color="lightgrey" />
+        <Ionicons name="chevron-forward-outline" size={24} color="#b2b3b3" />
       </View>
     </Pressable>
   );

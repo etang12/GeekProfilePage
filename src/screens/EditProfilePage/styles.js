@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   editProfileTitle: {
     fontSize: 26,
     fontWeight: 'bold',
-    color: '#4267B2',
+    color: '#4169e1',
     marginBottom: 15,
   },
   imageViewContainer: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 75,
     borderWidth: 6,
-    borderColor: '#4267B2',
+    borderColor: '#4169e1',
   },
   editIcon: {
     alignItems: 'center',

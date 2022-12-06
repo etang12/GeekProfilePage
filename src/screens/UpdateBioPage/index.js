@@ -31,6 +31,7 @@ const UpdateBioPage = () => {
             multiline={true}
             textAlignVertical="top"
             placeholder={placeHolder}
+            placeholderTextColor="#b2b3b3"
             maxLength={250}
             onChangeText={handleRowDataChange}
           />

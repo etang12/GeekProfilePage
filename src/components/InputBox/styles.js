@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: 65,
     borderWidth: 1,
-    borderColor: 'lightgrey',
+    borderColor: '#e5e5e5',
   },
   text: {
     marginLeft: 10,
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontWeight: 'bold',
     fontSize: 16,
+    color: '#b2b3b3',
   },
   textInput: {
     height: 45,

@@ -32,7 +32,7 @@ const App: () => Node = () => {
 
   return (
     <>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#4267B2'} />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#4169e1'} />
       <Router />
     </>
   );

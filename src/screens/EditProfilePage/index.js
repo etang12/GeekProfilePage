@@ -15,7 +15,7 @@ const EditProfilePage = props => {
     emailAddress: '',
     bio: '',
     profilePicture:
-      'https://cdn.nba.com/headshots/nba/latest/1040x760/1628369.png',
+      'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352154-stock-illustration-default-placeholder-profile-icon.jpg',
   });
 
   useEffect(() => {
@@ -65,7 +65,7 @@ const EditProfilePage = props => {
             />
           </Pressable>
           <View style={styles.editIcon}>
-            <MaterialIcons name="edit" size={24} color="#4267B2" />
+            <MaterialIcons name="edit" size={24} color="#4169e1" />
           </View>
         </View>
       </View>

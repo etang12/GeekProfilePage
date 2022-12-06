@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
     marginHorizontal: 5,
+    color: 'black',
   },
   title: {
     color: 'black',
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderWidth: 1,
-    borderColor: 'lightgrey',
+    borderColor: '#e5e5e5',
     height: 200,
   },
   updateButton: {
