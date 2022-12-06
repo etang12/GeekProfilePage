@@ -14,9 +14,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 17,
     marginHorizontal: 5,
-    // paddingBottom: 15,
-    // padding: 0,
-    // margin: 0,
   },
   title: {
     color: 'black',
@@ -30,7 +27,9 @@ const styles = StyleSheet.create({
     height: 200,
   },
   updateButton: {
-    marginTop: '50%',
+    position: 'absolute',
+    width: '100%',
+    bottom: 350,
   },
 });
 

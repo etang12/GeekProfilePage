@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {Text, View, TextInput} from 'react-native';
-import styles from './styles';
-
-import UpdateButton from '../../components/UpdateButton';
 import {useRoute} from '@react-navigation/native';
 
-// update page screen for phone number and email
-const UpdateBioPage = props => {
+import UpdateButton from '../../components/UpdateButton';
+import styles from './styles';
+
+const UpdateBioPage = () => {
   const route = useRoute();
   const rowId = route.params.rowId;
 
-  const placeHolder = `Write a little bit about yourself. Do you like chatting? Are you a smoker? Do you bring pets with you? Etc.`;
+  const placeHolder =
+    'Write a little bit about yourself. Do you like chatting? Are you a smoker? Do you bring pets with you? Etc.';
   const [rowData, setRowData] = useState({
     data: '',
   });
@@ -31,7 +31,7 @@ const UpdateBioPage = props => {
             multiline={true}
             textAlignVertical="top"
             placeholder={placeHolder}
-            maxLength={500}
+            maxLength={250}
             onChangeText={handleRowDataChange}
           />
         </View>

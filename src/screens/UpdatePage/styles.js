@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     marginHorizontal: 40,
-    marginTop: 60,
+    marginTop: 30,
     height: '100%',
   },
   title: {
@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   updateButton: {
-    marginTop: '105%',
+    position: 'absolute',
+    width: '100%',
+    bottom: 350,
   },
 });
 

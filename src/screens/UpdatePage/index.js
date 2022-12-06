@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 import {useRoute} from '@react-navigation/native';
-import styles from './styles';
 
+import styles from './styles';
 import InputBox from '../../components/InputBox';
 import UpdateButton from '../../components/UpdateButton';
 
-// update page screen for phone number and email
 const UpdatePage = props => {
-  // const title = props.data.title;
   const route = useRoute();
   const [rowData, setRowData] = useState({
     data: '',
@@ -22,7 +20,6 @@ const UpdatePage = props => {
   };
 
   const selectedRowId = route.params.rowId;
-  // console.warn(selectedRowId);
   const title =
     selectedRowId === 2 ? "What's your phone number?" : "What's your email?";
   const label =

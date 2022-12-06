@@ -1,17 +1,14 @@
 import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 import {useRoute} from '@react-navigation/native';
-import styles from './styles';
 
+import styles from './styles';
 import InputBox from '../../components/InputBox';
 import UpdateButton from '../../components/UpdateButton';
 
-const UpdateNamePage = props => {
+const UpdateNamePage = () => {
   const route = useRoute();
   const rowId = route.params.rowId;
-  // manage 2 states
-  // UpdateNamePage --> InputBox (pass function into InputBox to change text),InputBox --> UpdateNamePage (pass data back up)
-  // UpdateNamePage --> UpdateButton (pass function into UpdateButton), UpdateButton --> UpdateNamePage (return boolean value if contentText changed)
 
   const [fullName, setFullName] = useState({
     firstName: '',

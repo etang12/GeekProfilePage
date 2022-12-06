@@ -4,16 +4,10 @@ import {View, Text, TextInput} from 'react-native';
 import styles from './styles';
 
 const InputBox = props => {
-  const name = props.info.name;
+  const {name} = props.info;
   const onTextChange = props.onTextChange;
 
-  // initial thoughts
-  // deals with deciding if inputbox is being used for updating name (requires 2) or updating phone/email (1)
-  // set the correct width for respective page
-  let width = '100%';
-  if (name === 'First Name' || name === 'Last Name') {
-    width = '90%';
-  }
+  const width = name === 'First Name' || name === 'Last Name' ? '90%' : '100%';
 
   return (
     <View style={styles.inputContainer}>

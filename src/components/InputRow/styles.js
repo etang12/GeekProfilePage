@@ -9,7 +9,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 5,
   },
-  rowText: {},
+  rowTitle: {
+    fontWeight: 'bold',
+    color: 'lightgrey',
+  },
+  rowContent: {
+    fontWeight: 'bold',
+    color: 'black',
+    flexWrap: 'wrap',
+    width: 300,
+  },
   rowIcon: {
     justifyContent: 'center',
     alignItems: 'flex-end',

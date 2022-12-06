@@ -29,10 +29,6 @@ const styles = StyleSheet.create({
     borderRadius: 75,
     borderWidth: 6,
     borderColor: '#4267B2',
-    // overflow: 'hidden',
-    // resizeMode: 'cover',
-    // marginTop: 20,
-    // marginBottom: 40,
   },
   editIcon: {
     alignItems: 'center',
@@ -41,13 +37,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 25,
     right: -5,
-    borderRadius: 100,
+    borderRadius: 18,
     width: 35,
     height: 35,
-    zIndex: 99999,
-  },
-  fields: {
-    flexDirection: 'column',
   },
 });
 

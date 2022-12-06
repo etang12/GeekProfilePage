@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     marginHorizontal: 40,
-    marginTop: 60,
+    marginTop: 30,
     height: '100%',
   },
   title: {
@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   updateButton: {
-    marginTop: '100%',
+    position: 'absolute',
+    width: '100%',
+    bottom: 350,
   },
 });
 

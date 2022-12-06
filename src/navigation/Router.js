@@ -6,16 +6,15 @@ import EditProfilePage from '../screens/EditProfilePage';
 import UpdateNamePage from '../screens/UpdateNamePage';
 import UpdatePage from '../screens/UpdatePage';
 import UpdateBioPage from '../screens/UpdateBioPage';
-import UpdatePicturePage from '../screens/UpdatePicturePage';
 
 const Stack = createStackNavigator();
 
-const Router = props => {
+const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name={'EditProfilePage'}
+          name={'EditProfile'}
           component={EditProfilePage}
           options={{
             headerShown: false,
@@ -45,13 +44,6 @@ const Router = props => {
         <Stack.Screen
           name={'UpdateBio'}
           component={UpdateBioPage}
-          options={{
-            title: '',
-          }}
-        />
-        <Stack.Screen
-          name={'UpdatePicture'}
-          component={UpdatePicturePage}
           options={{
             title: '',
           }}

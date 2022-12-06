@@ -5,16 +5,13 @@ import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 
 const UpdateButton = props => {
-  const navigation = useNavigation();
   let rowFieldInput;
-  let rowInputObj;
-  const rowId = props.rowId;
+  let {rowInput, rowId} = props;
+  const navigation = useNavigation();
   if (rowId === 1) {
-    rowInputObj = props.rowInput;
-    rowFieldInput = `${rowInputObj.firstName} ${rowInputObj.lastName}`;
+    rowFieldInput = `${rowInput.firstName} ${rowInput.lastName}`;
   } else {
-    rowInputObj = props.rowInput;
-    rowFieldInput = `${rowInputObj.data}`;
+    rowFieldInput = `${rowInput.data}`;
   }
 
   const getRowField = rId => {
@@ -36,9 +33,9 @@ const UpdateButton = props => {
     <Pressable
       style={styles.updateButton}
       onPress={() => {
-        const rowField = getRowField(rowId);
-        navigation.navigate('EditProfilePage', {
-          [rowField]: rowFieldInput,
+        const rowFieldName = getRowField(rowId);
+        navigation.navigate('EditProfile', {
+          [rowFieldName]: rowFieldInput,
           rowId: rowId,
         });
       }}>
