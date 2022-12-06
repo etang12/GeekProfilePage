@@ -8,28 +8,11 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Image,
-} from 'react-native';
+import {StatusBar} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import styles from './styles';
 import Router from './src/navigation/Router';
 
 const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <>
       <StatusBar barStyle={'light-content'} backgroundColor={'#4169e1'} />
