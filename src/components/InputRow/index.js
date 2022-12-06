@@ -39,7 +39,14 @@ const InputRow = props => {
       }}>
       <View style={styles.rowText}>
         <Text style={{fontWeight: 'bold', color: 'lightgrey'}}>{title}</Text>
-        <Text style={{fontWeight: 'bold', color: 'black'}}>{content}</Text>
+        <Text
+          style={{
+            fontWeight: 'bold',
+            color: 'black',
+            flexWrap: 'wrap',
+          }}>
+          {content}
+        </Text>
       </View>
       <View style={styles.rowIcon}>
         <Ionicons name="chevron-forward-outline" size={24} color="lightgrey" />

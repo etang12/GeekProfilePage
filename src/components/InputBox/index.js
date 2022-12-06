@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, TextInput} from 'react-native';
 
 import styles from './styles';
@@ -24,6 +24,7 @@ const InputBox = props => {
             style={styles.textInput}
             underlineColorAndroid="transparent"
             onChangeText={onTextChange}
+            maxLength={40}
           />
         </View>
       </View>

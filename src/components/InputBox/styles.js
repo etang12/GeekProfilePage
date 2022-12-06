@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     padding: 0,
     margin: 0,
+    flexWrap: 'wrap',
   },
 });
 

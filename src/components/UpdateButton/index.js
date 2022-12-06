@@ -5,17 +5,41 @@ import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 
 const UpdateButton = props => {
-  const fullNameObj = props.fullName;
-  const rowId = props.rowId;
   const navigation = useNavigation();
-  const fullName = `${fullNameObj.firstName} ${fullNameObj.lastName}`;
+  let rowFieldInput;
+  let rowInputObj;
+  const rowId = props.rowId;
+  if (rowId === 1) {
+    rowInputObj = props.rowInput;
+    rowFieldInput = `${rowInputObj.firstName} ${rowInputObj.lastName}`;
+  } else {
+    rowInputObj = props.rowInput;
+    rowFieldInput = `${rowInputObj.data}`;
+  }
+
+  const getRowField = rId => {
+    switch (rId) {
+      case 1:
+        return 'fullName';
+      case 2:
+        return 'phoneNumber';
+      case 3:
+        return 'emailAddress';
+      case 4:
+        return 'bio';
+      default:
+        return null;
+    }
+  };
+
   return (
     <Pressable
       style={styles.updateButton}
       onPress={() => {
-        console.warn(fullName);
+        const rowField = getRowField(rowId);
+        console.warn(rowField);
         navigation.navigate('ProfilePage', {
-          InputData: fullName,
+          [rowField]: rowFieldInput,
           rowId: rowId,
         });
       }}>

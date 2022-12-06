@@ -1,30 +1,66 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {Text, View, Pressable, Image} from 'react-native';
+import {Text, View, Pressable, Image, ScrollView} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 
 import styles from './styles';
 import InputRow from '../../components/InputRow';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-// import {Input} from '@mui/material';
 
+/*
+PROCESS FOR UPDATING DATA ON PROFILE PAGE
+Flow: Profile page (click on InputRow) --> Update Page (fill in text input, click update) --> Profile Page
+Upon returning to profile page, now have access to data filled in on update page in text input
+Pass newly received data into InputRow's to generate input for the fields on profile picture upon re-render
+*/
+
+/*
+TODO
+- update fields for phone, email, bio
+- limit number of characters on text inputs
+*/
 const ProfilePage = props => {
   const route = useRoute();
-  const [formField, setFormField] = useState('');
+  const [formFields, setFormFields] = useState({
+    fullName: '',
+    phoneNumber: '',
+    emailAddress: '',
+    bio: '',
+  });
 
-  // flag used to indicate navigation from one of the updating pages (signals that data is available)
-  let isReturned = useRef();
+  // sets state for formField upon receiving data from route.params (AKA update button pressed)
+  // Update button getting pressed navigates back to profile page with data being passed along route
+  // useEffect(() => {
+  //   if (route.params) {
+  //     setFormFields(prevState => ({
+  //       ...prevState,
+  //       field: route.params.InputData,
+  //     }));
+  //   }
+  // }, [route.params]);
+
+  // sets state for formFields upon receiving data from route.params (AKA update button pressed)
+  // Update button getting pressed navigates back to profile page with data being passed along route
+  // Handles data for multiple pages by providing key of field that needs to be changed
   useEffect(() => {
     if (route.params) {
-      // setFormField(prevState => ({
-      //   ...prevState,
-      //   field: route.params.InputData,
-      // }));
-      setFormField(route.params.InputData);
+      setFormFields(prevState => {
+        // make copy of previous state
+        const newState = {...prevState};
+        console.log(`ROUTE PARAMS: ${Object.entries(route.params)}`);
+        // access each key, value pair in route.params and change corresponding key, value pair in formFields
+        Object.entries(route.params).map(obj => {
+          const [key, value] = obj;
+          if (key in newState) {
+            newState[key] = value;
+          }
+        });
+        return newState;
+      });
     }
   }, [route.params]);
 
   return (
-    <View style={styles.mainContainer}>
+    <ScrollView style={styles.mainContainer}>
       <View style={styles.header}>
         <Text style={{fontSize: 26, fontWeight: 'bold', color: '#4267B2'}}>
           Edit Profile
@@ -40,7 +76,7 @@ const ProfilePage = props => {
             }}
           />
           <View style={styles.editIcon}>
-            <MaterialIcons name="edit" size={22} color="#4267B2" />
+            <MaterialIcons name="edit" size={24} color="#4267B2" />
           </View>
         </Pressable>
       </View>
@@ -50,14 +86,24 @@ const ProfilePage = props => {
           data={{
             rowId: 1,
             title: 'Name',
-            content: formField,
+            content: formFields.fullName,
           }}
         />
-        <InputRow data={{rowId: 2, title: 'Phone'}} />
-        <InputRow data={{rowId: 3, title: 'Email'}} />
-        <InputRow data={{rowId: 4, title: 'Tell us about yourself'}} />
+        <InputRow
+          data={{rowId: 2, title: 'Phone', content: formFields.phoneNumber}}
+        />
+        <InputRow
+          data={{rowId: 3, title: 'Email', content: formFields.emailAddress}}
+        />
+        <InputRow
+          data={{
+            rowId: 4,
+            title: 'Tell us about yourself',
+            content: formFields.bio,
+          }}
+        />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

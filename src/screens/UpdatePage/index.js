@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, View, Pressable, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import styles from './styles';
 
@@ -10,6 +10,16 @@ import UpdateButton from '../../components/UpdateButton';
 const UpdatePage = props => {
   // const title = props.data.title;
   const route = useRoute();
+  const [rowData, setRowData] = useState({
+    data: '',
+  });
+
+  const handleRowDataChange = value => {
+    setRowData(prevState => ({
+      ...prevState,
+      data: `${value}`,
+    }));
+  };
 
   const selectedRowId = route.params.rowId;
   // console.warn(selectedRowId);
@@ -23,10 +33,10 @@ const UpdatePage = props => {
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
         <View style={styles.inputContainer}>
-          <InputBox info={{name: label}} />
+          <InputBox info={{name: label}} onTextChange={handleRowDataChange} />
         </View>
         <View style={styles.updateButton}>
-          <UpdateButton />
+          <UpdateButton rowInput={rowData} rowId={selectedRowId} />
         </View>
       </View>
     </View>
