@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text, View, Pressable, Image, ScrollView} from 'react-native';
-import {useRoute} from '@react-navigation/native';
+import {useRoute, useNavigation} from '@react-navigation/native';
+import * as ImagePicker from 'react-native-image-picker';
 
 import styles from './styles';
 import InputRow from '../../components/InputRow';
@@ -13,30 +14,17 @@ Upon returning to profile page, now have access to data filled in on update page
 Pass newly received data into InputRow's to generate input for the fields on profile picture upon re-render
 */
 
-/*
-TODO
-- update fields for phone, email, bio
-- limit number of characters on text inputs
-*/
-const ProfilePage = props => {
+const EditProfilePage = props => {
   const route = useRoute();
+  const navigation = useNavigation();
   const [formFields, setFormFields] = useState({
     fullName: '',
     phoneNumber: '',
     emailAddress: '',
     bio: '',
+    profilePicture:
+      'https://cdn.nba.com/headshots/nba/latest/1040x760/1628369.png',
   });
-
-  // sets state for formField upon receiving data from route.params (AKA update button pressed)
-  // Update button getting pressed navigates back to profile page with data being passed along route
-  // useEffect(() => {
-  //   if (route.params) {
-  //     setFormFields(prevState => ({
-  //       ...prevState,
-  //       field: route.params.InputData,
-  //     }));
-  //   }
-  // }, [route.params]);
 
   // sets state for formFields upon receiving data from route.params (AKA update button pressed)
   // Update button getting pressed navigates back to profile page with data being passed along route
@@ -47,7 +35,7 @@ const ProfilePage = props => {
         // make copy of previous state
         const newState = {...prevState};
         console.log(`ROUTE PARAMS: ${Object.entries(route.params)}`);
-        // access each key, value pair in route.params and change corresponding key, value pair in formFields
+        // access each key, value pair in route.params and set corresponding key, value pair in formFields
         Object.entries(route.params).map(obj => {
           const [key, value] = obj;
           if (key in newState) {
@@ -59,26 +47,44 @@ const ProfilePage = props => {
     }
   }, [route.params]);
 
+  // choose image from device storage
+  const chooseImage = async () => {
+    let result = await ImagePicker.launchImageLibrary({
+      mediaType: 'photo',
+      allowEditing: true,
+      quality: 1,
+    });
+    if (!result.didCancel) {
+      const pictureUri = result.assets[0].uri;
+      setFormFields(prevState => ({
+        ...prevState,
+        profilePicture: pictureUri,
+      }));
+    }
+  };
+
   return (
     <ScrollView style={styles.mainContainer}>
       <View style={styles.header}>
-        <Text style={{fontSize: 26, fontWeight: 'bold', color: '#4267B2'}}>
-          Edit Profile
-        </Text>
-        <Pressable
-          onPress={() => {
-            console.warn('edit profile clicked');
-          }}>
-          <Image
-            style={styles.profileImage}
-            source={{
-              uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
-            }}
-          />
+        <Text style={styles.editProfileTitle}>Edit Profile</Text>
+        <View>
+          <Pressable
+            style={styles.imageViewContainer}
+            onPress={() => {
+              // navigation.navigate('UpdatePicture');
+              chooseImage();
+            }}>
+            <Image
+              style={styles.profileImage}
+              source={{
+                uri: formFields.profilePicture,
+              }}
+            />
+          </Pressable>
           <View style={styles.editIcon}>
             <MaterialIcons name="edit" size={24} color="#4267B2" />
           </View>
-        </Pressable>
+        </View>
       </View>
 
       <View>
@@ -107,4 +113,4 @@ const ProfilePage = props => {
   );
 };
 
-export default ProfilePage;
+export default EditProfilePage;

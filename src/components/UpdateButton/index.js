@@ -37,8 +37,7 @@ const UpdateButton = props => {
       style={styles.updateButton}
       onPress={() => {
         const rowField = getRowField(rowId);
-        console.warn(rowField);
-        navigation.navigate('ProfilePage', {
+        navigation.navigate('EditProfilePage', {
           [rowField]: rowFieldInput,
           rowId: rowId,
         });

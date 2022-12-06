@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import {Text, View, TextInput} from 'react-native';
 import styles from './styles';
 
-import InputBox from '../../components/InputBox';
 import UpdateButton from '../../components/UpdateButton';
-import { useRoute } from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 
 // update page screen for phone number and email
 const UpdateBioPage = props => {
