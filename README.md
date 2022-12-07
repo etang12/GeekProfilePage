@@ -17,7 +17,7 @@ There are still some modifications that need to be made before being able to run
 
 needs to be added to the /android folder in the root directory of the project. Inside the file, the path to your installed android SDK file should be written down.
 
-`sdk.dir = /home/user/Android/Sdk`
+`sdk.dir = /home/YOURUSER/Android/Sdk`
 
 Everything should be good to go if all of these steps are followed properly.
 
